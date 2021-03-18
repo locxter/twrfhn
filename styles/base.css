@@ -1,0 +1,101 @@
+:root
+{
+	--base-color: #fff;
+    --text-color: #1b1d20;
+	--accent-color: #1b1d20;
+	background: var(--base-color);
+    box-sizing: border-box;
+	color: var(--text-color);
+	font-family: monospace;
+	font-size: calc(1rem + .5vw);
+	overflow: hidden;
+	scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after
+{
+	background: none;
+	border: 0;
+	color: inherit;
+	font-family: inherit;
+	hyphens: auto;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	text-decoration: none;
+    box-sizing: inherit;
+}
+
+[data-color-scheme='dark']
+{
+  display: none !important;
+}
+
+#not-supported
+{
+  background: #fff;
+  display: table;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+#not-supported *
+{
+  color: #1b1d20;
+  display: table-cell;
+  font-size: 2rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media screen and (hover: none) and (pointer: coarse)
+{
+    *
+    {
+        cursor: default !important;
+    }
+}
+
+@media screen and (prefers-color-scheme: dark)
+{
+    :root
+    {
+        --base-color: #1b1d20;
+	    --text-color: #fff;
+	    --accent-color: #fff;
+    }
+
+    [data-color-scheme='light']
+    {
+        display: none !important;
+    }
+
+    img[data-color-scheme='dark']
+    {
+        display: initial !important;
+    }
+}
+
+@supports (display: flex) and (--css: variable)
+{
+    :root
+    {
+		overflow: auto;
+	}
+
+    #not-supported
+    {
+        display: none !important;
+    }
+
+    #not-supported *
+    {
+        display: none !important;
+    }
+}

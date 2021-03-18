@@ -1,24 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="utf-8">
-    <title>Tower of Hanoi</title>
-    <meta name="author" content="locxter">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body style="font-family: sans-serif; margin: 0; text-align: center;">
-    <h1>Tower of Hanoi</h1>
-    <label>
-        Number of disks:
-        <input type="number" id="disk-count" value="4" min="0" max="10">
-    </label>
-    <br>
-    <button type="button" id="calculate-moves">Calculate moves</button>
-    <br>
-    <canvas id="output" width="300" height="120"></canvas>
-    <br>
-    <button type="button" id="previous-move">Previous move</button>
-    <button type="button" id="next-move">Next move</button>
-    <script src="scripts/index.js" charset="utf-8"></script>
-</body>
+<html lang="en">
+    <head>
+        <title>Tower of Hanoi</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="locxter">
+        <meta name="description" content="This is a very minimal visualization of the classic game "Tower of Hanoi" using an iterative algorithm to calculate the fastest way of solving it.">
+        <meta name="keywords" content="tower, hanoi">
+        <link rel="stylesheet" href="styles/index.css">
+    </head>
+    <body>
+        <section id="not-supported">
+            <p>Your browser isn't supported, please update or switch to a more modern one...</p>
+        </section>
+        <header>
+            <h1>Tower of Hanoi</h1>
+            <p>This is a visualization of the classic game Tower of Hanoi using an iterative algorithm to calculate the fastest way of solving it.</p>
+        </header>
+        <main>
+            <label for="disk-count">Number of disks:</label>
+            <input id="disk-count" type="number" min="1" value="4" max="10">
+            <button id="calculate-game-states" type="button">Calculate game states</button>
+            <canvas id="output" width="300" height="120"></canvas>
+            <button id="previous-game-state" type="button">Previous game state</button>
+            <button id="next-game-state" type="button">Next game state</button>
+        </main>
+        <footer>
+            <p>
+                2021
+                <a href="https://github.com/locxter">locxter</a>
+            </p>
+        </footer>
+        <script src="scripts/index.js"></script>
+    </body>
 </html>

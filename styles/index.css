@@ -1,0 +1,31 @@
+@import url("base.css");
+
+header,
+main
+{
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+}
+
+main > *
+{
+    margin: .5rem 0 0 0;
+}
+
+main input,
+main button
+{
+    background: var(--accent-color);
+    border-radius: .25rem;
+    color: var(--base-color);
+    padding: .5rem;
+}
+
+footer
+{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
