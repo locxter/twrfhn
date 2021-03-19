@@ -1,8 +1,10 @@
+@import url("colors.css");
+
 :root
 {
-	--base-color: #fff;
-    --text-color: #1b1d20;
-	--accent-color: #1b1d20;
+	--base-color: var(--base-color-light);
+    --text-color: var(--text-color-light);
+	--accent-color: var(--accent-color-light);
 	background: var(--base-color);
     box-sizing: border-box;
 	color: var(--text-color);
@@ -28,9 +30,9 @@
     box-sizing: inherit;
 }
 
-[data-color-scheme='dark']
+[data-color-scheme="dark"]
 {
-  display: none !important;
+  display: none;
 }
 
 #not-supported
@@ -54,31 +56,31 @@
   vertical-align: middle;
 }
 
+@media screen and (prefers-color-scheme: dark)
+{
+    :root
+    {
+        --base-color: var(--base-color-dark);
+	    --text-color: var(--text-color-dark);
+	    --accent-color: var(accent-color-dark);
+    }
+
+    [data-color-scheme="light"]
+    {
+        display: none;
+    }
+
+    [data-color-scheme="dark"]
+    {
+        display: unset;
+    }
+}
+
 @media screen and (hover: none) and (pointer: coarse)
 {
     *
     {
         cursor: default !important;
-    }
-}
-
-@media screen and (prefers-color-scheme: dark)
-{
-    :root
-    {
-        --base-color: #1b1d20;
-	    --text-color: #fff;
-	    --accent-color: #fff;
-    }
-
-    [data-color-scheme='light']
-    {
-        display: none !important;
-    }
-
-    img[data-color-scheme='dark']
-    {
-        display: initial !important;
     }
 }
 
