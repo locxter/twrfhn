@@ -9,12 +9,12 @@ const CANVAS_CONTEXT = CANVAS.getContext("2d");
 const PREVIOUS_GAME_STATE = document.getElementById("previous-game-state");
 const NEXT_GAME_STATE = document.getElementById("next-game-state");
 
-// Global variables
-var gameStates = [];
-var scalingRatio = 1;
-var diskCount = 0;
-var visibleGameState = 0;
-var colorSchemeDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+// Global letiables
+let gameStates = [];
+let scalingRatio = 1;
+let diskCount = 0;
+let visibleGameState = 0;
+let colorSchemeDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 // A small helper function for resizing the canvas
 function modifyCanvas()
@@ -54,7 +54,7 @@ function calculateGameStates()
                    [],
                    []
                ];
-    for (var i = 0; i < diskCount; i++)
+    for (let i = 0; i < diskCount; i++)
     {
         rods[0].push(i);
     }
@@ -112,12 +112,12 @@ function visualizeGameState(gameState = 0)
     // Drawing the game state label
     CANVAS_CONTEXT.font = (10 * scalingRatio) + "px monospace";
     CANVAS_CONTEXT.fillText(gameState + "/" + (gameStates.length - 1), 150 * scalingRatio, 8 * scalingRatio);
-    for (var i = 0; i < 3; i++)
+    for (let i = 0; i < 3; i++)
     {
         // Drawing a rod
         CANVAS_CONTEXT.fillRect((47.5 + (100 * i)) * scalingRatio, 10 * scalingRatio, 5 * scalingRatio, 100 * scalingRatio);
         // Drawing the disks on the rod
-        for (var j = 0; j < gameStates[gameState][i].length; j++)
+        for (let j = 0; j < gameStates[gameState][i].length; j++)
         {
             let diskWidth = diskScalingRatio * (gameStates[gameState][i][j] + 1);
             CANVAS_CONTEXT.fillRect((((100 - diskWidth) / 2) + (100 * i)) * scalingRatio, ((111 - (10 * gameStates[gameState][i].length)) + (10 * j)) * scalingRatio, diskWidth * scalingRatio, 9 * scalingRatio);
