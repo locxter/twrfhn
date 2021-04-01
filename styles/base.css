@@ -62,7 +62,7 @@
     {
         --base-color: var(--base-color-dark);
 	    --text-color: var(--text-color-dark);
-	    --accent-color: var(accent-color-dark);
+	    --accent-color: var(--accent-color-dark);
     }
 
     [data-color-scheme="light"]

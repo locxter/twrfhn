@@ -130,24 +130,24 @@ function visualizeGameState(gameState = 0)
 }
 
 // Fitting the canvas to the window size
-window.addEventListener("load", function()
+addEventListener("load", function()
 {
     modifyCanvas();
     modifyCanvas();
 });
-window.addEventListener("resize", function()
+addEventListener("resize", function()
 {
     modifyCanvas();
     modifyCanvas();
 });
-window.addEventListener("rotate", function()
+addEventListener("rotate", function()
 {
     modifyCanvas();
     modifyCanvas();
 });
 
 // Reacting to color preference change
-window.matchMedia("(prefers-color-scheme: dark)").addListener(function(mediaQuery)
+matchMedia("(prefers-color-scheme: dark)").addListener(function(mediaQuery)
 {
     if (mediaQuery.matches)
     {
