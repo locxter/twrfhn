@@ -1,31 +1,17 @@
 @import url("base.css");
 
-header,
-main
+body > *
 {
     align-items: center;
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
     text-align: center;
 }
 
-main > *
+body > * > *
 {
-    margin: .5rem 0 0 0;
+    flex: auto 0 0;
+    margin: .25rem 0;
 }
 
-main input,
-main button
-{
-    background: var(--accent-color);
-    border-radius: .25rem;
-    color: var(--base-color);
-    padding: .5rem;
-}
-
-footer
-{
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-}

@@ -1,9 +1,9 @@
 :root
 {
-    --base-color-light: #fff;
-    --base-color-dark: #1b1d20;
-    --text-color-light: #1b1d20;
-    --text-color-dark: #fff;
-    --accent-color-light: #1b1d20;
-    --accent-color-dark: #fff;
+    --base-color-light: #f8f9fa;
+    --base-color-dark: #212529;
+    --text-color-light: #212529;
+    --text-color-dark: #f8f9fa;
+    --accent-color-light: #4f86c6;
+    --accent-color-dark: #f8f9fa;
 }
