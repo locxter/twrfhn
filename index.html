@@ -7,39 +7,61 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="locxter">
+        <meta name="description" content="This is a visualization of the classic game Tower of Hanoi using an iterative algorithm to calculate the fastest way of solving it.">
         <link rel="stylesheet" href="styles/index.css">
     </head>
     <body>
-        <section id="not-supported">
+        <article id="outdated-browser">
+            <h2>
+                Outdated browser
+            </h2>
             <p>
-                Your browser isn't supported, please update or switch to a more modern one...
+                Your browser is to old to display this site properly. Please update it or switch to a more modern one.
             </p>
-        </section>
+        </article>
         <header>
             <h1>
-                Tower of Hanoi
+                twfhn
             </h1>
-            <p>
-                This is a visualization of the classic game Tower of Hanoi using an iterative algorithm to calculate the fastest way of solving it.
-            </p>
+            <nav>
+                <a href="#introduction">
+                    Introduction
+                </a>
+                <a href="#visualization">
+                    Visualization
+                </a>
+            </nav>
         </header>
         <main>
-            <label for="disk-count">
-                Number of disks:
-            </label>
-            <input id="disk-count" type="number" min="1" value="4" max="10">
-            <button id="calculate-game-states" type="button">
-                Calculate game states
-            </button>
-            <canvas id="output" width="300" height="120">
-                Canvas couldn't be rendered.
-            </canvas>
-            <button id="previous-game-state" type="button">
-                Previous game state
-            </button>
-            <button id="next-game-state" type="button">
-                Next game state
-            </button>
+            <article id="introduction">
+                <h2>
+                    Introduction
+                </h2>
+                <p>
+                    This is a visualization of the classic game Tower of Hanoi using an iterative algorithm to calculate the fastest way of solving it.
+                </p>
+            </article>
+            <article id="visualization">
+                <h2>
+                    Visualization
+                </h2>
+                <label for="visualization-disk-count">
+                    Disk count:
+                </label>
+                <input id="visualization-disk-count" type="number" min="1" value="4" max="10" size="2">
+                <button id="visualization-calculate-game-states" type="button">
+                    Calculate game states
+                </button>
+                <canvas id="visualization-canvas" width="300" height="120">
+                    Canvas couldn't be rendered.
+                </canvas>
+                <button id="visualization-previous-game-state" type="button">
+                    Previous game state
+                </button>
+                <button id="visualization-next-game-state" type="button">
+                    Next game state
+                </button>
+            </article>
         </main>
         <footer>
             <p>

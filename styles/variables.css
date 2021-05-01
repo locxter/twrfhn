@@ -6,4 +6,10 @@
     --text-color-dark: #f8f9fa;
     --accent-color-light: #4f86c6;
     --accent-color-dark: #f8f9fa;
+    --font: sans-serif;
+    --tiny-feature: .125rem;
+    --small-feature: .25rem;
+    --medium-feature: .5rem;
+    --large-feature: 1rem;
+    --giant-feature: 2rem;
 }

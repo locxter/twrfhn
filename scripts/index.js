@@ -2,12 +2,12 @@
 "use strict";
 
 // DOM references
-const DISK_COUNT = document.getElementById("disk-count");
-const CALCULATE_GAME_STATES = document.getElementById("calculate-game-states");
-const CANVAS = document.getElementById("output");
+const DISK_COUNT = document.getElementById("visualization-disk-count");
+const CALCULATE_GAME_STATES = document.getElementById("visualization-calculate-game-states");
+const CANVAS = document.getElementById("visualization-canvas");
 const CANVAS_CONTEXT = CANVAS.getContext("2d");
-const PREVIOUS_GAME_STATE = document.getElementById("previous-game-state");
-const NEXT_GAME_STATE = document.getElementById("next-game-state");
+const PREVIOUS_GAME_STATE = document.getElementById("visualization-previous-game-state");
+const NEXT_GAME_STATE = document.getElementById("visualization-next-game-state");
 
 // Global variables
 let gameStates = [];
@@ -21,8 +21,8 @@ let accentColor = getComputedStyle(document.documentElement).getPropertyValue("-
 function modifyCanvas()
 {
     // Sizing the canvas to the window width
-    CANVAS.width = document.documentElement.clientWidth * .9;
-    CANVAS.height = document.documentElement.clientWidth * .36;
+    CANVAS.width = CANVAS.parentElement.clientWidth;
+    CANVAS.height = CANVAS.parentElement.clientWidth * .4;
     // Updating the scaling ratio to fit the internal resolution of 300x120 to the real canvas size
     scalingRatio = CANVAS.width / 300;
     // Displaying a small informational text on the canvas

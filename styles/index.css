@@ -1,17 +1,39 @@
 @import url("base.css");
 
-body > *
+:root
+{
+    padding: var(--giant-feature);
+}
+
+header,
+article,
+footer
 {
     align-items: center;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
-    text-align: center;
 }
 
-body > * > *
+header,
+article
 {
-    flex: auto 0 0;
-    margin: .25rem 0;
+    margin: 0 0 var(--large-feature) 0;
 }
 
+:is(header, article) > :not(:last-child)
+{
+    margin: 0 0 var(--medium-feature) 0;
+}
+
+nav
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 0 calc(-1 * var(--small-feature));
+}
+
+nav a
+{
+    margin: 0 var(--small-feature);
+}

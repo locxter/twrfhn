@@ -1,8 +1,8 @@
-# Tower of Hanoi
+# twfhn
 
 ## Overview
 
-This is my visualization of the classic game Tower of Hanoi using an iterative algorithm to calculate the fastest way of solving it.
+This is a visualization of the classic game Tower of Hanoi using an iterative algorithm to calculate the fastest way of solving it.
 
 ## Dependencies
 
