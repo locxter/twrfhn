@@ -152,7 +152,7 @@ th
 }
 
 
-@supports (display: flex) and (--variable: value) and (--calc: calc(1 + 1)) and (--min: min(1, 1)) and (--max: max(1, 1)) and (--clamp: clamp(1, 1, 1)) and selector(:not(tag)) and selector(:is(tag))
+@supports (display: flex) and (--width: 1px) and (width: calc(1px + 1px)) and (width: min(1px, 1px)) and (width: max(1px, 1px)) and (width: clamp(1px, 1px, 1px))
 {
     :root
     {
