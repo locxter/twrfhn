@@ -22,15 +22,15 @@ function modifyCanvas()
 {
     // Sizing the canvas to the window width
     CANVAS.width = CANVAS.parentElement.clientWidth;
-    CANVAS.height = CANVAS.parentElement.clientWidth * .4;
-    // Updating the scaling ratio to fit the internal resolution of 300x120 to the real canvas size
-    scalingRatio = CANVAS.width / 300;
+    CANVAS.height = CANVAS.parentElement.clientWidth * (1080 / 1920);
+    // Updating the scaling ratio to fit the internal resolution of 1920x1080 to the real canvas size
+    scalingRatio = CANVAS.width / 1920;
     // Displaying a small informational text on the canvas
     CANVAS_CONTEXT.fillStyle = textColor;
-    CANVAS_CONTEXT.font = (5 * scalingRatio) + "px sans-serif";
+    CANVAS_CONTEXT.font = (54 * scalingRatio) + "px sans-serif";
     CANVAS_CONTEXT.textAlign = "center";
-    CANVAS_CONTEXT.textBaseline = "center";
-    CANVAS_CONTEXT.fillText("Click \"Calculate game states\" to see the visualization.", 150 * scalingRatio, 55 * scalingRatio);
+    CANVAS_CONTEXT.textBaseline = "middle";
+    CANVAS_CONTEXT.fillText("Click \"Calculate game states\" to see the visualization.", 960 * scalingRatio, 540 * scalingRatio);
     // Repainting the canvas when needed
     if (gameStates.length > 0)
     {
@@ -99,31 +99,32 @@ function calculateGameStates()
 function visualizeGameState(gameState = 0)
 {
     // Calculating the disk scaling ratio (width difference between different disk)
-    let diskScalingRatio = 100 / diskCount;
+    let diskScalingRatio = 544 / diskCount;
     // Clearing the canvas
     CANVAS_CONTEXT.clearRect(0, 0, CANVAS.width, CANVAS.height);
     // Drawing the game state label
     CANVAS_CONTEXT.fillStyle = textColor;
-    CANVAS_CONTEXT.font = (10 * scalingRatio) + "px sans-serif";
-    CANVAS_CONTEXT.fillText(gameState + "/" + (gameStates.length - 1), 150 * scalingRatio, 8 * scalingRatio);
+    CANVAS_CONTEXT.font = (54 * scalingRatio) + "px sans-serif";
+    CANVAS_CONTEXT.fillText(gameState + "/" + (gameStates.length - 1), 960 * scalingRatio, 54 * scalingRatio);
     for (let i = 0; i < 3; i++)
     {
         // Drawing a rod
         CANVAS_CONTEXT.fillStyle = textColor;
-        CANVAS_CONTEXT.fillRect((47.5 + (100 * i)) * scalingRatio, 10 * scalingRatio, 5 * scalingRatio, 100 * scalingRatio);
+        CANVAS_CONTEXT.fillRect((296 + (640 * i)) * scalingRatio, 108 * scalingRatio, 48 * scalingRatio, 864 * scalingRatio);
         // Drawing the disks on the rod
+        CANVAS_CONTEXT.fillStyle = accentColor;
         for (let j = 0; j < gameStates[gameState][i].length; j++)
         {
             let diskWidth = diskScalingRatio * (gameStates[gameState][i][j] + 1);
-            CANVAS_CONTEXT.fillStyle = accentColor;
-            CANVAS_CONTEXT.fillRect((((100 - diskWidth) / 2) + (100 * i)) * scalingRatio, ((111 - (10 * gameStates[gameState][i].length)) + (10 * j)) * scalingRatio, diskWidth * scalingRatio, 9 * scalingRatio);
+            CANVAS_CONTEXT.fillRect(((320 - (diskWidth / 2)) + (640 * i)) * scalingRatio, 
+            ((972 - (86.4 * gameStates[gameState][i].length)) + (86.4 * j)) * scalingRatio, diskWidth * scalingRatio, 80 * scalingRatio);
         }
     }
     // Drawing rod labels
     CANVAS_CONTEXT.fillStyle = textColor;
-    CANVAS_CONTEXT.fillText("A", 50 * scalingRatio, 118 * scalingRatio);
-    CANVAS_CONTEXT.fillText("B", 150 * scalingRatio, 118 * scalingRatio);
-    CANVAS_CONTEXT.fillText("C", 250 * scalingRatio, 118 * scalingRatio);
+    CANVAS_CONTEXT.fillText("A", 320 * scalingRatio, 1026 * scalingRatio);
+    CANVAS_CONTEXT.fillText("B", 960 * scalingRatio, 1026 * scalingRatio);
+    CANVAS_CONTEXT.fillText("C", 1600 * scalingRatio, 1026 * scalingRatio);
 }
 
 // Fitting the canvas to the window size
