@@ -152,7 +152,7 @@ th
 }
 
 
-@supports (display: flex) and (--width: 1px) and (width: calc(1px + 1px)) and (width: min(1px, 1px)) and (width: max(1px, 1px)) and (width: clamp(1px, 1px, 1px))
+@supports (display: flex) and (--width: 1px) and (--width: calc(1px + 1px)) and (--width: min(1px, 1px)) and (--width: max(1px, 1px)) and (--width: clamp(1px, 1px, 1px))
 {
     :root
     {
