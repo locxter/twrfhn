@@ -21,7 +21,7 @@
 	--base-color: var(--base-color-light);
     --text-color: var(--text-color-light);
 	--accent-color: var(--accent-color-light);
-	animation: fade-in ease .5s;
+	animation: fade-in .5s ease;
 	background: var(--base-color);
 	color: var(--text-color);
 	font-family: var(--font);
@@ -31,11 +31,14 @@
     box-sizing: border-box;
 }
 
-@keyframes fade-in {
-    0% {
+@keyframes fade-in
+{
+    0%
+    {
         opacity: 0;
     }
-    100% {
+    100%
+    {
         opacity: 1;
      }
 }
