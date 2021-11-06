@@ -21,6 +21,7 @@
 	--base-color: var(--base-color-light);
     --text-color: var(--text-color-light);
 	--accent-color: var(--accent-color-light);
+	animation: fade-in ease .5s;
 	background: var(--base-color);
 	color: var(--text-color);
 	font-family: var(--font);
@@ -28,6 +29,15 @@
 	overflow: hidden;
 	scroll-behavior: smooth;
     box-sizing: border-box;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
 }
 
 #outdated-browser
