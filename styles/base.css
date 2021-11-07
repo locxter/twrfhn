@@ -21,7 +21,7 @@
 	--base-color: var(--base-color-light);
     --text-color: var(--text-color-light);
 	--accent-color: var(--accent-color-light);
-	animation: fade-in .5s ease;
+	animation: fade-in .75s ease-in-out;
 	background: var(--base-color);
 	color: var(--text-color);
 	font-family: var(--font);
