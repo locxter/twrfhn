@@ -27,13 +27,14 @@ article
 
 nav
 {
+    align-items: center;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    margin: 0 calc(-1 * var(--small-feature));
+    margin: calc(-1 * var(--small-feature));
 }
 
-nav a
+nav > *
 {
-    margin: 0 var(--small-feature);
+    margin: var(--small-feature);
 }

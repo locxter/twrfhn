@@ -10,6 +10,9 @@
 	font-family: inherit;
 	hyphens: auto;
 	margin: 0;
+	max-width: 100%;
+	min-height: 0;
+	min-width: 0;
 	outline: 0;
 	padding: 0;
     box-sizing: inherit;
@@ -60,11 +63,9 @@ a
     color: var(--accent-color);
 }
 
-img {
-	max-height: 100%;
-	max-width: 100%;
-	min-height: 0;
-	min-width: 0;
+img
+{
+    max-height: 100%;
 	object-fit: contain;
 	object-position: center;
 }
@@ -74,7 +75,6 @@ textarea,
 button
 {
     border-radius: var(--small-feature);
-    max-width: 100%;
     padding: var(--medium-feature);
 }
 
@@ -106,7 +106,6 @@ table
 {
     border-collapse: collapse;
     display: block;
-    max-width: 100%;
     overflow: auto;
 }
 
