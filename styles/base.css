@@ -1,4 +1,4 @@
-@import url("variables.css");
+@import url('variables.css');
 
 *,
 *:before,
@@ -47,7 +47,7 @@
   z-index: 1;
 }
 
-[data-color-scheme="dark"]
+[data-color-scheme='dark']
 {
   display: none;
 }
@@ -75,6 +75,7 @@ textarea,
 button
 {
     border-radius: var(--small-feature);
+    font-size: .75rem;
     padding: var(--medium-feature);
 }
 
@@ -131,12 +132,12 @@ th
 	    --accent-color: var(--accent-color-dark);
     }
 
-    [data-color-scheme="light"]
+    [data-color-scheme='light']
     {
         display: none;
     }
 
-    [data-color-scheme="dark"]
+    [data-color-scheme='dark']
     {
         display: initial;
     }

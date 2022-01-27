@@ -1,21 +1,21 @@
 // Activating strict mode
-"use strict";
+'use strict';
 
 // DOM references
-const DISK_COUNT = document.getElementById("visualization-disk-count");
-const CALCULATE_GAME_STATES = document.getElementById("visualization-calculate-game-states");
-const CANVAS = document.getElementById("visualization-canvas");
-const CANVAS_CONTEXT = CANVAS.getContext("2d");
-const PREVIOUS_GAME_STATE = document.getElementById("visualization-previous-game-state");
-const NEXT_GAME_STATE = document.getElementById("visualization-next-game-state");
+const DISK_COUNT = document.getElementById('visualization-disk-count');
+const CALCULATE_GAME_STATES = document.getElementById('visualization-calculate-game-states');
+const CANVAS = document.getElementById('visualization-canvas');
+const CANVAS_CONTEXT = CANVAS.getContext('2d');
+const PREVIOUS_GAME_STATE = document.getElementById('visualization-previous-game-state');
+const NEXT_GAME_STATE = document.getElementById('visualization-next-game-state');
 
 // Global variables
 let gameStates = [];
 let scalingRatio = 1;
 let diskCount = 0;
 let visibleGameState = 0;
-let textColor = getComputedStyle(document.documentElement).getPropertyValue("--text-color");
-let accentColor = getComputedStyle(document.documentElement).getPropertyValue("--accent-color");
+let textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
+let accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color');
 
 // A small helper function for resizing the canvas
 function modifyCanvas()
@@ -27,10 +27,10 @@ function modifyCanvas()
     scalingRatio = CANVAS.width / 1920;
     // Displaying a small informational text on the canvas
     CANVAS_CONTEXT.fillStyle = textColor;
-    CANVAS_CONTEXT.font = (54 * scalingRatio) + "px sans-serif";
-    CANVAS_CONTEXT.textAlign = "center";
-    CANVAS_CONTEXT.textBaseline = "middle";
-    CANVAS_CONTEXT.fillText("Click \"Calculate game states\" to see the visualization.", 960 * scalingRatio, 540 * scalingRatio);
+    CANVAS_CONTEXT.font = (54 * scalingRatio) + 'px sans-serif';
+    CANVAS_CONTEXT.textAlign = 'center';
+    CANVAS_CONTEXT.textBaseline = 'middle';
+    CANVAS_CONTEXT.fillText('Click Calculate game states to see the visualization.', 960 * scalingRatio, 540 * scalingRatio);
     // Repainting the canvas when needed
     if (gameStates.length > 0)
     {
@@ -104,8 +104,8 @@ function visualizeGameState(gameState = 0)
     CANVAS_CONTEXT.clearRect(0, 0, CANVAS.width, CANVAS.height);
     // Drawing the game state label
     CANVAS_CONTEXT.fillStyle = textColor;
-    CANVAS_CONTEXT.font = (54 * scalingRatio) + "px sans-serif";
-    CANVAS_CONTEXT.fillText(gameState + "/" + (gameStates.length - 1), 960 * scalingRatio, 54 * scalingRatio);
+    CANVAS_CONTEXT.font = (54 * scalingRatio) + 'px sans-serif';
+    CANVAS_CONTEXT.fillText(gameState + '/' + (gameStates.length - 1), 960 * scalingRatio, 54 * scalingRatio);
     for (let i = 0; i < 3; i++)
     {
         // Drawing a rod
@@ -122,38 +122,38 @@ function visualizeGameState(gameState = 0)
     }
     // Drawing rod labels
     CANVAS_CONTEXT.fillStyle = textColor;
-    CANVAS_CONTEXT.fillText("A", 320 * scalingRatio, 1026 * scalingRatio);
-    CANVAS_CONTEXT.fillText("B", 960 * scalingRatio, 1026 * scalingRatio);
-    CANVAS_CONTEXT.fillText("C", 1600 * scalingRatio, 1026 * scalingRatio);
+    CANVAS_CONTEXT.fillText('A', 320 * scalingRatio, 1026 * scalingRatio);
+    CANVAS_CONTEXT.fillText('B', 960 * scalingRatio, 1026 * scalingRatio);
+    CANVAS_CONTEXT.fillText('C', 1600 * scalingRatio, 1026 * scalingRatio);
 }
 
 // Fitting the canvas to the window size
-addEventListener("load", function()
+addEventListener('load', function()
 {
     modifyCanvas();
     modifyCanvas();
 });
-addEventListener("resize", function()
+addEventListener('resize', function()
 {
     modifyCanvas();
     modifyCanvas();
 });
-addEventListener("rotate", function()
+addEventListener('rotate', function()
 {
     modifyCanvas();
     modifyCanvas();
 });
 
 // Reacting to color preference change
-matchMedia("(prefers-color-scheme: dark)").addListener(function(mediaQuery)
+matchMedia('(prefers-color-scheme: dark)').addListener(function(mediaQuery)
 {
-    textColor = getComputedStyle(document.documentElement).getPropertyValue("--text-color");
-    accentColor = getComputedStyle(document.documentElement).getPropertyValue("--accent-color");
+    textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
+    accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color');
     modifyCanvas();
 });
 
 // Handling button clicks
-CALCULATE_GAME_STATES.addEventListener("click", function ()
+CALCULATE_GAME_STATES.addEventListener('click', function ()
 {
     diskCount = DISK_COUNT.value;
     if (diskCount < 1)
@@ -169,7 +169,7 @@ CALCULATE_GAME_STATES.addEventListener("click", function ()
     visualizeGameState(visibleGameState);
 });
 
-PREVIOUS_GAME_STATE.addEventListener("click", function ()
+PREVIOUS_GAME_STATE.addEventListener('click', function ()
 {
     if (visibleGameState > 0)
     {
@@ -178,7 +178,7 @@ PREVIOUS_GAME_STATE.addEventListener("click", function ()
     }
 });
 
-NEXT_GAME_STATE.addEventListener("click", function ()
+NEXT_GAME_STATE.addEventListener('click', function ()
 {
     if (visibleGameState < gameStates.length - 1)
     {
