@@ -1,4 +1,3 @@
-// Activating strict mode
 'use strict';
 
 // DOM references
