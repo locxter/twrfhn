@@ -17,7 +17,7 @@ article {
     margin: 0 0 var(--large-feature) 0;
 }
 
-:is(header, article) > :not(:last-child) {
+:is(header, article)>:not(:last-child) {
     margin: 0 0 var(--medium-feature) 0;
 }
 
@@ -29,6 +29,6 @@ nav {
     margin: calc(-1 * var(--small-feature));
 }
 
-nav > * {
+nav>* {
     margin: var(--small-feature);
 }
