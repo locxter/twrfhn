@@ -1,32 +1,27 @@
-@import url("base.css");
+@import url('base.css');
 
-:root
-{
+:root {
     padding: var(--giant-feature);
 }
 
 header,
 article,
-footer
-{
+footer {
     align-items: center;
     display: flex;
     flex-flow: column nowrap;
 }
 
 header,
-article
-{
+article {
     margin: 0 0 var(--large-feature) 0;
 }
 
-:is(header, article) > :not(:last-child)
-{
+:is(header, article) > :not(:last-child) {
     margin: 0 0 var(--medium-feature) 0;
 }
 
-nav
-{
+nav {
     align-items: center;
     display: flex;
     flex-flow: row wrap;
@@ -34,7 +29,6 @@ nav
     margin: calc(-1 * var(--small-feature));
 }
 
-nav > *
-{
+nav > * {
     margin: var(--small-feature);
 }

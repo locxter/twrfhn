@@ -17,8 +17,7 @@ let textColor = getComputedStyle(document.documentElement).getPropertyValue('--t
 let accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color');
 
 // A small helper function for resizing the canvas
-function modifyCanvas()
-{
+function modifyCanvas() {
     // Sizing the canvas to the window width
     CANVAS.width = CANVAS.parentElement.clientWidth;
     CANVAS.height = CANVAS.parentElement.clientWidth * (1080 / 1920);
@@ -31,57 +30,49 @@ function modifyCanvas()
     CANVAS_CONTEXT.textBaseline = 'middle';
     CANVAS_CONTEXT.fillText('Click Calculate game states to see the visualization.', 960 * scalingRatio, 540 * scalingRatio);
     // Repainting the canvas when needed
-    if (gameStates.length > 0)
-    {
+    if (gameStates.length > 0) {
         visualizeGameState(visibleGameState);
     }
 }
 
 // An iterative algorithm to solve the game
-function calculateGameStates()
-{
+function calculateGameStates() {
     // Creating the rod start configuration
     let rods = [
-                   [],
-                   [],
-                   []
-               ];
-    for (let i = 0; i < diskCount; i++)
-    {
+        [],
+        [],
+        []
+    ];
+    for (let i = 0; i < diskCount; i++) {
         rods[0].push(i);
     }
     // Resetting the gamestate history
     gameStates = [JSON.parse(JSON.stringify(rods))];
     // Setting the movement direction for disk 0 following this scheme: [last, current, next]
     let disk0Positions = [];
-    if (diskCount % 2 === 0)
-    {
+    if (diskCount % 2 === 0) {
         // Moving disk 0 through the rods from A to C when having an even number of disks
         disk0Positions = [2, 0, 1];
     }
-    else
-    {
+    else {
         // Moving disk 0 through the rods from C to A when having an odd number of disks
         disk0Positions = [1, 0, 2];
     }
     // Moving disks until all of them are on rod C and in the right order
-    while (rods[2].length < diskCount)
-    {
+    while (rods[2].length < diskCount) {
         // Moving disk 0 to the next rod
         rods[disk0Positions[2]].unshift(0);
         rods[disk0Positions[1]].shift();
         // Storing the current move
         gameStates.push(JSON.parse(JSON.stringify(rods)));
-        if (rods[disk0Positions[0]][0] < rods[disk0Positions[1]][0] || (rods[disk0Positions[1]][0] === undefined && rods[2].length < diskCount))
-        {
+        if (rods[disk0Positions[0]][0] < rods[disk0Positions[1]][0] || (rods[disk0Positions[1]][0] === undefined && rods[2].length < diskCount)) {
             // Moving another disk from second last to last position of disk 0 if possible
             rods[disk0Positions[1]].unshift(rods[disk0Positions[0]][0]);
             rods[disk0Positions[0]].shift();
             // Storing the current move
             gameStates.push(JSON.parse(JSON.stringify(rods)));
         }
-        else if (rods[disk0Positions[1]][0] < rods[disk0Positions[0]][0] || (rods[disk0Positions[0]][0] === undefined && rods[2].length < diskCount))
-        {
+        else if (rods[disk0Positions[1]][0] < rods[disk0Positions[0]][0] || (rods[disk0Positions[0]][0] === undefined && rods[2].length < diskCount)) {
             // Moving another disk from last to second last position of disk 0 if possible
             rods[disk0Positions[0]].unshift(rods[disk0Positions[1]][0]);
             rods[disk0Positions[1]].shift();
@@ -95,8 +86,7 @@ function calculateGameStates()
 }
 
 // An algorithm to visualize the game states
-function visualizeGameState(gameState = 0)
-{
+function visualizeGameState(gameState = 0) {
     // Calculating the disk scaling ratio (width difference between different disk)
     let diskScalingRatio = 544 / diskCount;
     // Clearing the canvas
@@ -105,18 +95,16 @@ function visualizeGameState(gameState = 0)
     CANVAS_CONTEXT.fillStyle = textColor;
     CANVAS_CONTEXT.font = (54 * scalingRatio) + 'px sans-serif';
     CANVAS_CONTEXT.fillText(gameState + '/' + (gameStates.length - 1), 960 * scalingRatio, 54 * scalingRatio);
-    for (let i = 0; i < 3; i++)
-    {
+    for (let i = 0; i < 3; i++) {
         // Drawing a rod
         CANVAS_CONTEXT.fillStyle = textColor;
         CANVAS_CONTEXT.fillRect((296 + (640 * i)) * scalingRatio, 108 * scalingRatio, 48 * scalingRatio, 864 * scalingRatio);
         // Drawing the disks on the rod
         CANVAS_CONTEXT.fillStyle = accentColor;
-        for (let j = 0; j < gameStates[gameState][i].length; j++)
-        {
+        for (let j = 0; j < gameStates[gameState][i].length; j++) {
             let diskWidth = diskScalingRatio * (gameStates[gameState][i][j] + 1);
-            CANVAS_CONTEXT.fillRect(((320 - (diskWidth / 2)) + (640 * i)) * scalingRatio, 
-            ((972 - (86.4 * gameStates[gameState][i].length)) + (86.4 * j)) * scalingRatio, diskWidth * scalingRatio, 80 * scalingRatio);
+            CANVAS_CONTEXT.fillRect(((320 - (diskWidth / 2)) + (640 * i)) * scalingRatio,
+                ((972 - (86.4 * gameStates[gameState][i].length)) + (86.4 * j)) * scalingRatio, diskWidth * scalingRatio, 80 * scalingRatio);
         }
     }
     // Drawing rod labels
@@ -127,40 +115,33 @@ function visualizeGameState(gameState = 0)
 }
 
 // Fitting the canvas to the window size
-addEventListener('load', function()
-{
+addEventListener('load', function () {
     modifyCanvas();
     modifyCanvas();
 });
-addEventListener('resize', function()
-{
+addEventListener('resize', function () {
     modifyCanvas();
     modifyCanvas();
 });
-addEventListener('rotate', function()
-{
+addEventListener('rotate', function () {
     modifyCanvas();
     modifyCanvas();
 });
 
 // Reacting to color preference change
-matchMedia('(prefers-color-scheme: dark)').addListener(function(mediaQuery)
-{
+matchMedia('(prefers-color-scheme: dark)').addListener(function (mediaQuery) {
     textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
     accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color');
     modifyCanvas();
 });
 
 // Handling button clicks
-CALCULATE_GAME_STATES.addEventListener('click', function ()
-{
+CALCULATE_GAME_STATES.addEventListener('click', function () {
     diskCount = DISK_COUNT.value;
-    if (diskCount < 1)
-    {
+    if (diskCount < 1) {
         diskCount = 1;
     }
-    else if (diskCount > 10)
-    {
+    else if (diskCount > 10) {
         diskCount = 10;
     }
     calculateGameStates();
@@ -168,19 +149,15 @@ CALCULATE_GAME_STATES.addEventListener('click', function ()
     visualizeGameState(visibleGameState);
 });
 
-PREVIOUS_GAME_STATE.addEventListener('click', function ()
-{
-    if (visibleGameState > 0)
-    {
+PREVIOUS_GAME_STATE.addEventListener('click', function () {
+    if (visibleGameState > 0) {
         visibleGameState--;
         visualizeGameState(visibleGameState);
     }
 });
 
-NEXT_GAME_STATE.addEventListener('click', function ()
-{
-    if (visibleGameState < gameStates.length - 1)
-    {
+NEXT_GAME_STATE.addEventListener('click', function () {
+    if (visibleGameState < gameStates.length - 1) {
         visibleGameState++;
         visualizeGameState(visibleGameState);
     }
