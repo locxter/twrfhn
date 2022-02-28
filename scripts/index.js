@@ -115,28 +115,28 @@ function visualizeGameState(gameState = 0) {
 }
 
 // Fitting the canvas to the window size
-addEventListener('load', function () {
+addEventListener('load', () => {
     modifyCanvas();
     modifyCanvas();
 });
-addEventListener('resize', function () {
+addEventListener('resize', () => {
     modifyCanvas();
     modifyCanvas();
 });
-addEventListener('rotate', function () {
+addEventListener('rotate', () => {
     modifyCanvas();
     modifyCanvas();
 });
 
 // Reacting to color preference change
-matchMedia('(prefers-color-scheme: dark)').addListener(function (mediaQuery) {
+matchMedia('(prefers-color-scheme: dark)').addListener(() => {
     textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
     accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color');
     modifyCanvas();
 });
 
 // Handling button clicks
-CALCULATE_GAME_STATES.addEventListener('click', function () {
+CALCULATE_GAME_STATES.addEventListener('click', () => {
     diskCount = DISK_COUNT.value;
     if (diskCount < 1) {
         diskCount = 1;
@@ -148,15 +148,13 @@ CALCULATE_GAME_STATES.addEventListener('click', function () {
     visibleGameState = 0;
     visualizeGameState(visibleGameState);
 });
-
-PREVIOUS_GAME_STATE.addEventListener('click', function () {
+PREVIOUS_GAME_STATE.addEventListener('click', () => {
     if (visibleGameState > 0) {
         visibleGameState--;
         visualizeGameState(visibleGameState);
     }
 });
-
-NEXT_GAME_STATE.addEventListener('click', function () {
+NEXT_GAME_STATE.addEventListener('click', () => {
     if (visibleGameState < gameStates.length - 1) {
         visibleGameState++;
         visualizeGameState(visibleGameState);
