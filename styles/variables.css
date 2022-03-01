@@ -3,7 +3,8 @@
     --accent-color-light: #3584e4;
     --base-color-dark: #000000;
     --base-color-light: #ffffff;
-    --font: sans-serif;
+    --font-family: sans-serif;
+    --font-style: normal;
     --giant-feature: 2rem;
     --large-feature: 1rem;
     --medium-feature: .5rem;

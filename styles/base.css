@@ -8,6 +8,7 @@
     box-sizing: inherit;
     color: inherit;
     font-family: inherit;
+    font-style: inherit;
     hyphens: auto;
     margin: 0;
     max-width: 100%;
@@ -25,7 +26,8 @@
     background: var(--base-color);
     box-sizing: border-box;
     color: var(--text-color);
-    font-family: var(--font);
+    font-family: var(--font-family);
+    font-style: var(--font-style);
     font-size: calc(1rem + .5vw);
     overflow: hidden;
     scroll-behavior: smooth;
