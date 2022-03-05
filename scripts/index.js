@@ -129,7 +129,7 @@ addEventListener('rotate', () => {
 });
 
 // Reacting to color preference change
-matchMedia('(prefers-color-scheme: dark)').addListener(() => {
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
     accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent-color');
     modifyCanvas();
