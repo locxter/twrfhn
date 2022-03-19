@@ -1,4 +1,4 @@
-package com.gitlab.locxter.twrfhn;
+package com.github.locxter.twrfhn;
 
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;

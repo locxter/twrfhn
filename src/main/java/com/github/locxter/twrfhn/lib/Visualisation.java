@@ -1,4 +1,4 @@
-package com.gitlab.locxter.twrfhn.lib;
+package com.github.locxter.twrfhn.lib;
 
 import java.awt.Color;
 import java.awt.Font;

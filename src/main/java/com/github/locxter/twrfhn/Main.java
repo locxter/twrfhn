@@ -1,4 +1,4 @@
-package com.gitlab.locxter.twrfhn;
+package com.github.locxter.twrfhn;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -16,8 +16,8 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import com.formdev.flatlaf.FlatLightLaf;
-import com.gitlab.locxter.twrfhn.lib.TowerOfHanoi;
-import com.gitlab.locxter.twrfhn.lib.Visualisation;
+import com.github.locxter.twrfhn.lib.TowerOfHanoi;
+import com.github.locxter.twrfhn.lib.Visualisation;
 
 // Main class
 public class Main {
@@ -42,7 +42,7 @@ public class Main {
         JLabel diskCountLabel = new JLabel("Disk count:");
         JSpinner diskCountSpinner = new JSpinner(new SpinnerNumberModel(5, 1, 10, 1));
         JButton calculateButton = new JButton("Calculate");
-        JLabel moveLabel = new JLabel("Move: 0 / 0");
+        JLabel moveLabel = new JLabel("Move:");
         JButton previousMoveButton = new JButton("Previous move");
         JButton nextMoveButton = new JButton("Next move");
         JLabel aboutLabel = new JLabel("2022 locxter");
