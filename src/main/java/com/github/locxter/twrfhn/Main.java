@@ -40,22 +40,23 @@ public class Main {
         JPanel panel = new JPanel();
         GridBagConstraints constraints = new GridBagConstraints();
         JLabel diskCountLabel = new JLabel("Disk count:");
-        JSpinner diskCountSpinner = new JSpinner(new SpinnerNumberModel(5, 1, 10, 1));
+        JSpinner diskCountInput = new JSpinner(new SpinnerNumberModel(5, 1, 10, 1));
         JButton calculateButton = new JButton("Calculate");
         JLabel moveLabel = new JLabel("Move:");
+        JLabel moveData = new JLabel();
         JButton previousMoveButton = new JButton("Previous move");
         JButton nextMoveButton = new JButton("Next move");
-        JLabel aboutLabel = new JLabel("2022 locxter");
         Visualisation visualisation = new Visualisation();
+        JLabel aboutLabel = new JLabel("2022 locxter");
         // Add functions to the buttons
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                towerOfHanoi.setDiskCount((int) diskCountSpinner.getValue());
+                towerOfHanoi.setDiskCount((int) diskCountInput.getValue());
                 moves = towerOfHanoi.calculateMoves();
                 currentMove = 0;
                 moveCount = moves.size() - 1;
-                moveLabel.setText("Move: " + currentMove + " / " + moveCount);
+                moveData.setText(currentMove + " / " + moveCount);
                 visualisation.showVisualisation(moves.get(currentMove));
             }
         });
@@ -64,7 +65,7 @@ public class Main {
             public void actionPerformed(ActionEvent event) {
                 if (currentMove > 0 && !moves.isEmpty()) {
                     currentMove--;
-                    moveLabel.setText("Move: " + currentMove + " / " + moveCount);
+                    moveData.setText(currentMove + " / " + moveCount);
                     visualisation.showVisualisation(moves.get(currentMove));
                 }
             }
@@ -74,7 +75,7 @@ public class Main {
             public void actionPerformed(ActionEvent event) {
                 if (currentMove < moveCount && !moves.isEmpty()) {
                     currentMove++;
-                    moveLabel.setText("Move: " + currentMove + " / " + moveCount);
+                    moveData.setText(currentMove + " / " + moveCount);
                     visualisation.showVisualisation(moves.get(currentMove));
                 }
             }
@@ -83,15 +84,15 @@ public class Main {
         panel.setBorder(new EmptyBorder(5, 5, 5, 5));
         panel.setLayout(new GridBagLayout());
         constraints.insets = new Insets(5, 5, 5, 5);
-        constraints.weightx = 1;
         constraints.fill = GridBagConstraints.RELATIVE;
+        constraints.weightx = 1;
         constraints.gridx = 0;
         constraints.gridy = 0;
         panel.add(diskCountLabel, constraints);
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.gridx = 1;
         constraints.gridy = 0;
-        panel.add(diskCountSpinner, constraints);
+        panel.add(diskCountInput, constraints);
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 2;
@@ -99,8 +100,11 @@ public class Main {
         constraints.fill = GridBagConstraints.RELATIVE;
         constraints.gridx = 0;
         constraints.gridy = 2;
-        constraints.gridwidth = 2;
+        constraints.gridwidth = 1;
         panel.add(moveLabel, constraints);
+        constraints.gridx = 1;
+        constraints.gridy = 2;
+        panel.add(moveData, constraints);
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.gridx = 0;
         constraints.gridy = 3;
@@ -108,19 +112,16 @@ public class Main {
         panel.add(previousMoveButton, constraints);
         constraints.gridx = 0;
         constraints.gridy = 4;
-        constraints.gridwidth = 2;
         panel.add(nextMoveButton, constraints);
         constraints.fill = GridBagConstraints.BOTH;
         constraints.weighty = 1;
         constraints.gridx = 0;
         constraints.gridy = 5;
-        constraints.gridwidth = 2;
         panel.add(visualisation, constraints);
         constraints.fill = GridBagConstraints.RELATIVE;
         constraints.weighty = 0;
         constraints.gridx = 0;
         constraints.gridy = 6;
-        constraints.gridwidth = 2;
         panel.add(aboutLabel, constraints);
         // Create the main window
         frame.setSize(new Dimension(640, 640));
