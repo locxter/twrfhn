@@ -14,7 +14,7 @@ public class TowerOfHanoi {
         }
     }
 
-    // Getter and Setter
+    // Getter and setter
     public int getDiskCount() {
         return diskCount;
     }
@@ -85,9 +85,7 @@ public class TowerOfHanoi {
                         rods.get(disk0Positions.get(1)).remove(0);
                         moves.add(cloneRods(rods));
                     }
-
                 }
-
             }
             // Set new positions of disk 0 for the next iteration
             disk0Positions.add(disk0Positions.get(0));
@@ -102,13 +100,13 @@ public class TowerOfHanoi {
         ArrayList<Integer> copiedrod1 = new ArrayList<>();
         ArrayList<Integer> copiedrod2 = new ArrayList<>();
         ArrayList<ArrayList<Integer>> copiedRods = new ArrayList<>();
-        for (Integer disk : originalRods.get(0)) {
+        for (int disk : originalRods.get(0)) {
             copiedrod0.add(disk);
         }
-        for (Integer disk : originalRods.get(1)) {
+        for (int disk : originalRods.get(1)) {
             copiedrod1.add(disk);
         }
-        for (Integer disk : originalRods.get(2)) {
+        for (int disk : originalRods.get(2)) {
             copiedrod2.add(disk);
         }
         copiedRods.add(copiedrod0);

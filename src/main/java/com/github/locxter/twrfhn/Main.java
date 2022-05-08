@@ -22,10 +22,10 @@ import com.github.locxter.twrfhn.lib.Visualisation;
 // Main class
 public class Main {
     // Attributes
-    static TowerOfHanoi towerOfHanoi = new TowerOfHanoi(5);
-    static ArrayList<ArrayList<ArrayList<Integer>>> moves = new ArrayList<>();
-    static int currentMove = 0;
-    static int moveCount = 0;
+    static private TowerOfHanoi towerOfHanoi = new TowerOfHanoi(5);
+    static private ArrayList<ArrayList<ArrayList<Integer>>> moves = new ArrayList<>();
+    static private int currentMove = 0;
+    static private int moveCount = 0;
 
     // Main function
     public static void main(String[] args) {

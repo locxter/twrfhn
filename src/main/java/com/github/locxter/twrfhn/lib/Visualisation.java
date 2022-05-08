@@ -12,7 +12,12 @@ public class Visualisation extends JComponent {
     // Attributes
     private double scalingRatio;
     private boolean showStartScreen = true;
-    private ArrayList<ArrayList<Integer>> rods;
+    private ArrayList<ArrayList<Integer>> rods = new ArrayList<>();
+
+    // Constructor
+    public Visualisation() {
+        super();
+    }
 
     // Function to draw the component
     @Override
