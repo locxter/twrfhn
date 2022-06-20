@@ -2,7 +2,7 @@ package com.github.locxter.twrfhn.lib;
 
 import java.util.ArrayList;
 
-// TowerOfHanoi class
+// Tower of Hanoi class
 public class TowerOfHanoi {
     // Attributes
     private int diskCount = 1;
