@@ -5,7 +5,7 @@ import org.junit.Test;
 
 // Main test class
 public class MainTest {
-    // Required function
+    // Required mehtod
     @Test
     public void shouldAnswerWithTrue() {
         assertTrue(true);

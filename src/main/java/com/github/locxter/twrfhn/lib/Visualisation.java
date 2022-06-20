@@ -19,7 +19,7 @@ public class Visualisation extends JComponent {
         super();
     }
 
-    // Function to draw the component
+    // Method to draw the component
     @Override
     protected void paintComponent(Graphics canvas) {
         // Clear the component
@@ -58,12 +58,12 @@ public class Visualisation extends JComponent {
         }
     }
 
-    // Helper function to transform an unscaled value to a scaled one
+    // Helper method to transform an unscaled value to a scaled one
     private int getScaledValue(int unscaledValue) {
         return (int) Math.round(unscaledValue * scalingRatio);
     }
 
-    // Helper function to update the visualisation
+    // Helper method to update the visualisation
     public void showVisualisation(ArrayList<ArrayList<Integer>> rods) {
         if (showStartScreen) {
             showStartScreen = false;

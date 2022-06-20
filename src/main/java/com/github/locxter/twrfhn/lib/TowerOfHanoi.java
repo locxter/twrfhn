@@ -25,7 +25,7 @@ public class TowerOfHanoi {
         }
     }
 
-    // Function to calculate the moves needed to solve the puzzle
+    // Method to calculate the moves needed to solve the puzzle
     public ArrayList<ArrayList<ArrayList<Integer>>> calculateMoves() {
         // Internal variables
         ArrayList<Integer> rod0 = new ArrayList<>();
@@ -94,7 +94,7 @@ public class TowerOfHanoi {
         return moves;
     }
 
-    // Helper function to clone the rods before saving them
+    // Helper method to clone the rods before saving them
     private ArrayList<ArrayList<Integer>> cloneRods(ArrayList<ArrayList<Integer>> originalRods) {
         ArrayList<Integer> copiedrod0 = new ArrayList<>();
         ArrayList<Integer> copiedrod1 = new ArrayList<>();

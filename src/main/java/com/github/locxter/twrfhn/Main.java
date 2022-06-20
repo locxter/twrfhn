@@ -27,7 +27,7 @@ public class Main {
     static private int currentMove = 0;
     static private int moveCount = 0;
 
-    // Main function
+    // Main method
     public static void main(String[] args) {
         // Set a pleasing LaF
         try {
