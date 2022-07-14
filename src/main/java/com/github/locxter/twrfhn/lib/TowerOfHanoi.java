@@ -7,6 +7,27 @@ public class TowerOfHanoi {
     // Attributes
     private int diskCount = 1;
 
+    // Helper method to clone the rods before saving them
+    private ArrayList<ArrayList<Integer>> cloneRods(ArrayList<ArrayList<Integer>> originalRods) {
+        ArrayList<Integer> copiedrod0 = new ArrayList<>();
+        ArrayList<Integer> copiedrod1 = new ArrayList<>();
+        ArrayList<Integer> copiedrod2 = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> copiedRods = new ArrayList<>();
+        for (int disk : originalRods.get(0)) {
+            copiedrod0.add(disk);
+        }
+        for (int disk : originalRods.get(1)) {
+            copiedrod1.add(disk);
+        }
+        for (int disk : originalRods.get(2)) {
+            copiedrod2.add(disk);
+        }
+        copiedRods.add(copiedrod0);
+        copiedRods.add(copiedrod1);
+        copiedRods.add(copiedrod2);
+        return copiedRods;
+    }
+
     // Constructor
     public TowerOfHanoi(int diskCount) {
         if (diskCount > 0) {
@@ -92,26 +113,5 @@ public class TowerOfHanoi {
             disk0Positions.remove(0);
         }
         return moves;
-    }
-
-    // Helper method to clone the rods before saving them
-    private ArrayList<ArrayList<Integer>> cloneRods(ArrayList<ArrayList<Integer>> originalRods) {
-        ArrayList<Integer> copiedrod0 = new ArrayList<>();
-        ArrayList<Integer> copiedrod1 = new ArrayList<>();
-        ArrayList<Integer> copiedrod2 = new ArrayList<>();
-        ArrayList<ArrayList<Integer>> copiedRods = new ArrayList<>();
-        for (int disk : originalRods.get(0)) {
-            copiedrod0.add(disk);
-        }
-        for (int disk : originalRods.get(1)) {
-            copiedrod1.add(disk);
-        }
-        for (int disk : originalRods.get(2)) {
-            copiedrod2.add(disk);
-        }
-        copiedRods.add(copiedrod0);
-        copiedRods.add(copiedrod1);
-        copiedRods.add(copiedrod2);
-        return copiedRods;
     }
 }

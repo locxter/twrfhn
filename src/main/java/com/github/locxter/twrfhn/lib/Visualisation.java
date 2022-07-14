@@ -14,25 +14,27 @@ public class Visualisation extends JComponent {
     private boolean showStartScreen = true;
     private ArrayList<ArrayList<Integer>> rods = new ArrayList<>();
 
-    // Constructor
-    public Visualisation() {
-        super();
+    // Helper method to transform an unscaled value to a scaled one
+    private int getScaledValue(int unscaledValue) {
+        return (int) Math.round(unscaledValue * scalingRatio);
     }
 
     // Method to draw the component
     @Override
     protected void paintComponent(Graphics canvas) {
+        int width = getWidth();
+        int height = getHeight();
         // Clear the component
         super.paintComponent(canvas);
         canvas.setColor(new Color(255, 255, 255));
-        canvas.fillRect(0, 0, getWidth(), getHeight());
+        canvas.fillRect(0, 0, width, height);
         // Calculate the scaling ratio and center the canvas
-        if ((double) getWidth() / getHeight() > 16.0 / 9) {
-            scalingRatio = getHeight() / 1080.0;
-            canvas.translate((int) Math.round((getWidth() - scalingRatio * 1920) / 2), 0);
+        if ((double) width / height > 16.0 / 9) {
+            scalingRatio = height / 1080.0;
+            canvas.translate((int) Math.round((width - (scalingRatio * 1920)) / 2), 0);
         } else {
-            scalingRatio = getWidth() / 1920.0;
-            canvas.translate(0, (int) Math.round((getHeight() - scalingRatio * 1080) / 2));
+            scalingRatio = width / 1920.0;
+            canvas.translate(0, (int) Math.round((height - (scalingRatio * 1080)) / 2));
         }
         if (showStartScreen) {
             // Draw a start screen if no visualisation has been requested yet
@@ -58,12 +60,12 @@ public class Visualisation extends JComponent {
         }
     }
 
-    // Helper method to transform an unscaled value to a scaled one
-    private int getScaledValue(int unscaledValue) {
-        return (int) Math.round(unscaledValue * scalingRatio);
+    // Constructor
+    public Visualisation() {
+        super();
     }
 
-    // Helper method to update the visualisation
+    // Method to update the visualisation
     public void showVisualisation(ArrayList<ArrayList<Integer>> rods) {
         if (showStartScreen) {
             showStartScreen = false;
