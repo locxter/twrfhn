@@ -15,7 +15,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
-import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.github.locxter.twrfhn.lib.TowerOfHanoi;
 import com.github.locxter.twrfhn.lib.Visualisation;
 
@@ -31,7 +31,7 @@ public class Main {
     public static void main(String[] args) {
         // Set a pleasing LaF
         try {
-            UIManager.setLookAndFeel(new FlatLightLaf());
+            UIManager.setLookAndFeel(new FlatDarkLaf());
         } catch (Exception exception) {
             System.out.println("Failed to initialize LaF.");
         }
