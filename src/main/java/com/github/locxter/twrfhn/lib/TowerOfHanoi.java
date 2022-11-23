@@ -28,11 +28,13 @@ public class TowerOfHanoi {
         return copiedRods;
     }
 
-    // Constructor
+    // Constructors
+    public TowerOfHanoi() {
+    }
+
     public TowerOfHanoi(int diskCount) {
-        if (diskCount > 0) {
-            this.diskCount = diskCount;
-        }
+        this();
+        setDiskCount(diskCount);
     }
 
     // Getter and setter

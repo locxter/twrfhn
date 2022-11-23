@@ -60,9 +60,14 @@ public class Visualisation extends JComponent {
         }
     }
 
-    // Constructor
+    // Constructors
     public Visualisation() {
         super();
+    }
+
+    public Visualisation(ArrayList<ArrayList<Integer>> rods) {
+        this();
+        showVisualisation(rods);
     }
 
     // Method to update the visualisation
