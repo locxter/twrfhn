@@ -50,18 +50,23 @@ public class Visualisation extends JComponent {
             String message = "Press \"Calculate\" to see the visualisation.";
             context.setFont(font);
             context.setColor(new Color(255, 255, 255));
-            context.drawString(message, (int) Math.round(((double) getScaledValue(1920) - metrics.stringWidth(message)) / 2), (int) Math.round((((double) getScaledValue(1080) - metrics.getHeight()) / 2) + metrics.getAscent()));
+            context.drawString(message, (int) Math.round(((double) getScaledValue(1920) -
+                    metrics.stringWidth(message)) / 2), (int) Math.round((((double) getScaledValue(1080) -
+                    metrics.getHeight()) / 2) + metrics.getAscent()));
         } else {
             int diskCount = rods.get(0).size() + rods.get(1).size() + rods.get(2).size();
             for (int i = 0; i < 3; i++) {
                 // Drawing a rod
                 context.setColor(new Color(255, 255, 255));
-                context.fillRect(getScaledValue(304 + (640 * i)), 0, getScaledValue(32), getScaledValue(1080));
+                context.fillRect(getScaledValue(304 + (640 * i)), 0, getScaledValue(32),
+                        getScaledValue(1080));
                 // Drawing the disks on the rod
                 context.setColor(new Color(0, 255, 0));
                 for (int j = 0; j < rods.get(i).size(); j++) {
                     int diskWidth = (int) Math.round((640.0 / diskCount) * (rods.get(i).get(j) + 1));
-                    context.fillRect(getScaledValue(((320 - (diskWidth / 2)) + (640 * i))), getScaledValue(1080 - (108 * (rods.get(i).size() - j))), getScaledValue(diskWidth), getScaledValue(96));
+                    context.fillRect(getScaledValue(((320 - (diskWidth / 2)) + (640 * i))), getScaledValue(
+                            1080 - (108 * (rods.get(i).size() - j))), getScaledValue(diskWidth),
+                            getScaledValue(96));
                 }
             }
         }
