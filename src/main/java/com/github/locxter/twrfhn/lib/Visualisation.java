@@ -1,11 +1,8 @@
 package com.github.locxter.twrfhn.lib;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
-import javax.swing.JComponent;
 
 // Visualisation class
 public class Visualisation extends JComponent {
@@ -13,6 +10,16 @@ public class Visualisation extends JComponent {
     private double scalingRatio;
     private boolean showStartScreen = true;
     private ArrayList<ArrayList<Integer>> rods = new ArrayList<>();
+
+    // Constructors
+    public Visualisation() {
+        super();
+    }
+
+    public Visualisation(ArrayList<ArrayList<Integer>> rods) {
+        this();
+        showVisualisation(rods);
+    }
 
     // Helper method to transform an unscaled value to a scaled one
     private int getScaledValue(int unscaledValue) {
@@ -54,20 +61,10 @@ public class Visualisation extends JComponent {
                 context.setColor(new Color(0, 255, 0));
                 for (int j = 0; j < rods.get(i).size(); j++) {
                     int diskWidth = (int) Math.round((640.0 / diskCount) * (rods.get(i).get(j) + 1));
-                    context.fillRect(getScaledValue(((320 - (diskWidth / 2)) + (640 * i))), getScaledValue((int) Math.round(1080 - (108 * (rods.get(i).size() - j)))), getScaledValue(diskWidth), getScaledValue(96));
+                    context.fillRect(getScaledValue(((320 - (diskWidth / 2)) + (640 * i))), getScaledValue(1080 - (108 * (rods.get(i).size() - j))), getScaledValue(diskWidth), getScaledValue(96));
                 }
             }
         }
-    }
-
-    // Constructors
-    public Visualisation() {
-        super();
-    }
-
-    public Visualisation(ArrayList<ArrayList<Integer>> rods) {
-        this();
-        showVisualisation(rods);
     }
 
     // Method to update the visualisation
