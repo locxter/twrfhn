@@ -13,8 +13,9 @@ I generally try to minimize dependencies, but I'm a one man crew and can therefo
 distributions as I'm running one myself. Anyway, you need to have the following packages installed for everything to
 work properly:
 
-- JDK for developing Java programs. Install it with `sudo apt install openjdk-17-jdk`.
-- Maven for building the whole thing. Install it with `sudo apt install maven`.
+- SDKMAN! for managing all the JVM dependencies. Install it via the [installation guide](https://sdkman.io/install).
+- JDK for developing Java programs. Install it with `sdk install java`.
+- Maven for building the whole thing. Install it with `sdk install maven`.
 
 ## How to use it
 
